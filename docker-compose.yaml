@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  web:
+    build: ./web
+    volumes:
+      - ./web:/root/web
+      - /root/web/node_modules
+    ports:
+      - 8080:8080
