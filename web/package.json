@@ -23,7 +23,9 @@
     "prod": "node_modules/.bin/webpack --config build/webpack.config.prod.js",
     "lint": "node_modules/.bin/eslint --ext .js,.vue src",
     "lint:fix": "node_modules/.bin/eslint --ext .js,.vue src --fix",
-    "test": "node_modules/.bin/jest"
+    "pretest": "npm run lint",
+    "test": "node_modules/.bin/jest",
+    "posttest": "node_modules/.bin/codecov"
   },
   "dependencies": {
     "vue": "^2.5.16",
@@ -37,6 +39,7 @@
     "babel-eslint": "^8.2.4",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
+    "codecov": "^3.0.4",
     "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.11",
     "eslint": "^5.0.0",
@@ -72,6 +75,7 @@
   },
   "jest": {
     "collectCoverage": true,
+    "testURL": "http://localhost/",
     "collectCoverageFrom": [
       "src/**/*.{js,vue}"
     ],
