@@ -1,7 +1,14 @@
 # ---- Base Node ----
 FROM alpine:3.5 AS base
+
+LABEL maintainer Irfan Andriansyah <irfanandriansyah10@gmail.com>
+
 # install node
 RUN apk add --no-cache nodejs-current tini
+
+RUN apk --update add git openssh && \
+  rm -rf /var/lib/apt/lists/* && \
+  rm /var/cache/apk/*
 # set working directory
 WORKDIR /root/web
 # Set tini as entrypoint
