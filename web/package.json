@@ -72,6 +72,7 @@
   },
   "jest": {
     "collectCoverage": true,
+    "testURL": "http://localhost/",
     "collectCoverageFrom": [
       "src/**/*.{js,vue}"
     ],

@@ -59,3 +59,6 @@ web/.env
 
 # built files
 web/dist
+
+web/jest_*
+web/jest*
