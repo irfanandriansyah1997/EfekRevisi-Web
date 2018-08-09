@@ -6,7 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:7.10
+      - image: circleci/node:8.11
 
     working_directory: ~/repo
 
@@ -16,16 +16,14 @@ jobs:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
           - v1-dependencies-
-      - run: cd web
-      - run: pwd
-      - run: yarn install
+      - run: cd web && yarn install
 
       - save_cache:
           paths:
-            - node_modules
+            - web/node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: yarn test
+      - run: cd web && yarn test
 
 
