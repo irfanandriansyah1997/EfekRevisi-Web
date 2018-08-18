@@ -1,18 +1,9 @@
 # ---- Base Node ----
-FROM alpine:3.5 AS base
+FROM efekrevisi-images AS base
 
-LABEL maintainer Irfan Andriansyah <irfanandriansyah10@gmail.com>
-
-# install node
-RUN apk add --no-cache nodejs-current tini
-
-RUN apk --update add git openssh && \
-  rm -rf /var/lib/apt/lists/* && \
-  rm /var/cache/apk/*
 # set working directory
 WORKDIR /root/web
-# Set tini as entrypoint
-ENTRYPOINT ["/sbin/tini", "--"]
+
 # copy project file
 COPY . .
 COPY package.json .
@@ -24,13 +15,6 @@ FROM base AS dependencies
 RUN npm set progress=false && npm config set depth 0
 # install ALL node_modules, including 'devDependencies'
 RUN npm install
-
-#
-# ---- Test ----
-# run linters and tests
-FROM dependencies AS test
-COPY . .
-# RUN  npm run lint && npm run setup && npm run test
 
 #
 # ---- Release ----
