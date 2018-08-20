@@ -6,39 +6,46 @@
     </p>
     <p>
       We've added some basic stories inside the
-      <br />
+      <br>
       <code class="code">src/stories</code>
-      <br />
+      <br>
       directory.
-      <br />
+      <br>
       A story is a single state of one or more UI components. You can have as many stories as
       you want.
-      <br />
+      <br>
       (Basically a story is like a visual test case.)
     </p>
     <p>
       See these sample
-      <br />
-      <a class="link" @click="onClick" role="button" tabIndex="0">stories</a>
-      <br />
+      <br>
+      <a
+        class="link"
+        tabIndex="0"
+        role="button"
+        @click="onClick"
+      >
+        stories
+      </a>
+      <br>
       for a component called
-      <br />
+      <br>
       <code class="code">Button</code>
       .
     </p>
     <p>
       Just like that, you can add your own components as stories.
-      <br />
+      <br>
       You can also edit those components and see changes right away.
-      <br />
+      <br>
       (Try editing the <code class="code">Button</code> component
       located at <code class="code">src/stories/Button.js</code>.)
     </p>
     <p>
       This is just one thing you can do with Storybook.
-      <br />
+      <br>
       Have a look at the
-      <br />
+      <br>
       <a
         class="link"
         href="https://github.com/storybooks/storybook"
@@ -47,16 +54,16 @@
       >
         Storybook
       </a>
-      <br />
+      <br>
       repo for more information.
     </p>
     <p class="note">
       <b>NOTE:</b>
-      <br />
+      <br>
       Have a look at the
-      <br />
+      <br>
       <code class="code">.storybook/webpack.config.js</code>
-      <br />
+      <br>
       to add webpack
       loaders and plugins you are using in this project.
     </p>
@@ -64,57 +71,55 @@
 </template>
 
 <script>
-  const log = () => console.log('Welcome to storybook!')
+const log = () => console.log('Welcome to storybook!')
 
-  export default {
-    name: 'welcome',
-
-    props: {
-      showApp: {
-        type: Function,
-        default: log
-      }
-    },
-
-    methods: {
-      onClick (event) {
-        event.preventDefault()
-        this.showApp()
-      }
+export default {
+  props: {
+    showApp: {
+      type: Function,
+      default: log
+    }
+  },
+  methods: {
+    onClick(event) {
+      event.preventDefault()
+      this.showApp()
     }
   }
+}
 </script>
 
 <style>
-  .main {
-    margin: 15px;
-    max-width: 600px;
-    line-height: 1.4;
-    font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
-  }
+.main {
+  margin: 15px;
+  max-width: 600px;
+  line-height: 1.4;
+  font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans,
+    sans-serif;
+}
 
-  .logo {
-    width: 200px;
-  }
+.logo {
+  width: 200px;
+}
 
-  .link {
-    color: #1474f3;
-    text-decoration: none;
-    border-bottom: 1px solid #1474f3;
-    padding-bottom: 2px;
-  }
+.link {
+  color: #1474f3;
+  text-decoration: none;
+  border-bottom: 1px solid #1474f3;
+  padding-bottom: 2px;
+}
 
-  .code {
-    font-size: 15px;
-    font-weight: 600;
-    padding: 2px 5px;
-    border: 1px solid #eae9e9;
-    border-radius: 4px;
-    background-color: #f3f2f2;
-    color: #3a3a3a;
-  }
+.code {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 2px 5px;
+  border: 1px solid #eae9e9;
+  border-radius: 4px;
+  background-color: #f3f2f2;
+  color: #3a3a3a;
+}
 
-  .note {
-    opacity: 0.5;
-  }
+.note {
+  opacity: 0.5;
+}
 </style>

@@ -15,9 +15,10 @@ module.exports = {
   plugins: ['vue'],
   rules: {
     'generator-star-spacing': 'off',
+    'space-before-function-paren': 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'linebreak-style': [2, 'unix'],
     quotes: [2, 'single'],
     semi: [2, 'never']
   }
-};
+}
