@@ -2,7 +2,6 @@
 
 const merge = require('webpack-merge')
 const baseConfig = require('./webpack.config.base')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = merge(baseConfig, {
@@ -22,11 +21,11 @@ module.exports = merge(baseConfig, {
     rules: [
       {
         test: /\.css?$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
+        use: ['css-loader']
       },
       {
         test: /\.styl(us)?$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'stylus-loader']
+        use: ['css-loader', 'stylus-loader']
       },
       {
         test: /\.less$/,
@@ -36,7 +35,7 @@ module.exports = merge(baseConfig, {
         })
       },
       {
-        test: /\.sass$/,
+        test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: ['css-loader', 'sass-loader']
@@ -44,9 +43,5 @@ module.exports = merge(baseConfig, {
       }
     ]
   },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'main.css'
-    })
-  ]
+  plugins: [new ExtractTextPlugin({ filename: '[name].css', allChunks: true })]
 })

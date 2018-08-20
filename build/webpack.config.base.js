@@ -3,6 +3,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
+const OptimizeAssetPlugin = require('optimize-css-assets-webpack-plugin')
+const UglifyPlugin = require('uglifyjs-webpack-plugin')
 
 const utils = require('./utils')
 
@@ -20,7 +22,10 @@ module.exports = {
       store: utils.resolve('src/store')
     }
   },
-
+  output: {
+    filename: '[name].bundle.js',
+    chunkFilename: '[name].bundle.js'
+  },
   module: {
     rules: [
       {
@@ -73,8 +78,21 @@ module.exports = {
       }
     ]
   },
-
+  optimization: {
+    minimizer: [
+      new UglifyPlugin({
+        cache: true,
+        parallel: true,
+        uglifyOptions: {
+          mangle: {
+            keep_fnames: true
+          }
+        }
+      })
+    ]
+  },
   plugins: [
+    new OptimizeAssetPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',

@@ -8,18 +8,16 @@ module.exports = {
     node: true,
     mocha: true
   },
-  "globals": {
-    "expect": true
+  globals: {
+    expect: true
   },
-  extends: [
-    'plugin:vue/recommended',
-    'standard'
-  ],
-  plugins: [
-    'vue'
-  ],
+  extends: ['plugin:vue/recommended', 'standard'],
+  plugins: ['vue'],
   rules: {
     'generator-star-spacing': 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'linebreak-style': [2, 'unix'],
+    quotes: [2, 'single'],
+    semi: [2, 'never']
   }
-}
+};

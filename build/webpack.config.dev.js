@@ -26,7 +26,11 @@ module.exports = merge(baseConfig, {
       poll: true
     }
   },
-
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
+  },
   module: {
     rules: [
       {
@@ -45,7 +49,7 @@ module.exports = merge(baseConfig, {
         })
       },
       {
-        test: /\.sass$/,
+        test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: ['css-loader', 'sass-loader']
@@ -53,6 +57,8 @@ module.exports = merge(baseConfig, {
       }
     ]
   },
-
-  plugins: [new webpack.HotModuleReplacementPlugin()]
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new ExtractTextPlugin({ filename: '[name].css', allChunks: true })
+  ]
 })

@@ -14,7 +14,7 @@ FROM base AS dependencies
 # install node packages
 RUN npm set progress=false && npm config set depth 0
 # install ALL node_modules, including 'devDependencies'
-RUN npm install
+RUN npm install --loglevel verbose
 
 #
 # ---- Release ----
@@ -26,4 +26,6 @@ COPY . .
 
 # expose port and define CMD
 EXPOSE 8080
-CMD npm run dev
+EXPOSE 6006
+
+CMD ["/sbin/my_init"]
