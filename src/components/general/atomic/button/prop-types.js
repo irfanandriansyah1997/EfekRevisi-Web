@@ -43,5 +43,9 @@ export default {
   to: {
     type: String,
     default: null
+  },
+  isLoading: {
+    type: Boolean,
+    default: false
   }
 }
