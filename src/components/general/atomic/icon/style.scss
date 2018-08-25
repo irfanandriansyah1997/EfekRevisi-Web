@@ -1,0 +1,33 @@
+.ef-icon {
+  @include font-size(24px);
+
+  &.material-icons {
+    @include font-size(24px);
+  }
+
+  &.ef-icon {
+    &--small {
+      @include font-size(16px);
+
+      &.material-icons {
+        @include font-size(16px);
+      }
+    }
+
+    &--large {
+      @include font-size(32px);
+
+      &.material-icons {
+        @include font-size(32px);
+      }
+    }
+
+    &--x-large {
+      @include font-size(40px);
+
+      &.material-icons {
+        @include font-size(40px);
+      }
+    }
+  }
+}
