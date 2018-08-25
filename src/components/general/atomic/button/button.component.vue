@@ -24,7 +24,7 @@ export default {
       return {
         'ef-btn': true,
         'ef-btn--small': this.size === 'small',
-        'ef-btn--big': this.size === 'big',
+        'ef-btn--large': this.size === 'large',
         'ef-btn--disabled': this.disabled,
         'ef-btn--fab': this.fab,
         'ef-btn--outline': this.outline,

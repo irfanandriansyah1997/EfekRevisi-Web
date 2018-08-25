@@ -11,7 +11,7 @@ export default {
     type: String,
     default: 'default',
     validator: value => {
-      var label = ['small', 'default', 'big']
+      var label = ['small', 'default', 'large']
 
       return label.indexOf(value) > -1
     }
