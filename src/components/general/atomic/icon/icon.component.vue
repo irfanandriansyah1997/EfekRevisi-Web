@@ -1,5 +1,8 @@
 <template>
-  <i :class="classes">
+  <i
+    :class="classes"
+    :style="styles"
+  >
     <slot v-if="type === 'material-icons'" />
   </i>
 </template>
@@ -37,6 +40,27 @@ export default {
       }
 
       return className
+    },
+    styles() {
+      const data = (...args) => {
+        return {
+          'font-size': `${args[0]}px`,
+          'color': args[1]
+        }
+      }
+
+      return this.checkKey(data(this.fontSize, this.color))
+    }
+  },
+  methods: {
+    checkKey(data) {
+      return Object.keys(data).filter(x => {
+        return data[x]
+      }).map(x => {
+        return { [x]: data[x] }
+      }).reduce((obj, item) => {
+        return { ...obj, ...item }
+      }, {})
     }
   }
 }

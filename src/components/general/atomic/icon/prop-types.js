@@ -20,5 +20,9 @@ export default {
 
       return label.indexOf(value) > -1
     }
+  },
+  fontSize: {
+    type: Number | String,
+    default: null
   }
 }
