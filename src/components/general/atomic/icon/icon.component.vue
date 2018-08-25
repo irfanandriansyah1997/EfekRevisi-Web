@@ -13,6 +13,7 @@
 </style>
 
 <script>
+import ArrayMixin from '@/mixins/array.mixins'
 import props from './prop-types'
 
 export default {
@@ -22,6 +23,7 @@ export default {
       render: (h, ctx) => ctx.props.vnodes
     }
   },
+  mixins: [ArrayMixin],
   props,
   computed: {
     classes() {
@@ -43,7 +45,7 @@ export default {
     styles() {
       const generateStyle = (...args) => {
         return {
-          'font-size': `${args[0]}px`,
+          'font-size': args[0] ? `${args[0]}px` : null,
           color: args[1]
         }
       }
