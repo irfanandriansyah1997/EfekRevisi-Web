@@ -9,7 +9,7 @@
 
 <style lang="scss">
 @import '@/style/scss/import.scss';
-@import 'style.scss';
+@import './style.scss';
 </style>
 
 <script>
@@ -27,7 +27,6 @@ export default {
     classes() {
       const className = {
         'ef-icon': true,
-        'ef-icon--x-small': this.size === 'small',
         'ef-icon--small': this.size === 'small',
         'ef-icon--large': this.size === 'large',
         'ef-icon--x-large': this.size === 'x-large'
@@ -36,32 +35,22 @@ export default {
       if (this.type === 'material-icons') {
         className['material-icons'] = true
       } else {
-        className[this.$slots.default] = true
+        className[this.$slots.default[0].text] = true
       }
 
       return className
     },
     styles() {
-      const data = (...args) => {
+      const generateStyle = (...args) => {
         return {
           'font-size': `${args[0]}px`,
-          'color': args[1]
+          color: args[1]
         }
       }
 
-      return this.checkKey(data(this.fontSize, this.color))
+      return this.checkKeyIsNotNull(generateStyle(this.fontSize, this.color))
     }
   },
-  methods: {
-    checkKey(data) {
-      return Object.keys(data).filter(x => {
-        return data[x]
-      }).map(x => {
-        return { [x]: data[x] }
-      }).reduce((obj, item) => {
-        return { ...obj, ...item }
-      }, {})
-    }
-  }
+  methods: {}
 }
 </script>
