@@ -3,7 +3,7 @@ import router from './router'
 import App from './App'
 import Component from './components'
 
-import 'assets/css/app.styl'
+import './style/main.scss'
 
 Component.map(x => {
   Vue.component(x.name, x.component)
