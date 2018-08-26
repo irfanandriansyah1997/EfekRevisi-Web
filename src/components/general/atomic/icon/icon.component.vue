@@ -17,12 +17,6 @@ import ArrayMixin from '@/mixins/array.mixins'
 import props from './prop-types'
 
 export default {
-  components: {
-    Vnodes: {
-      functional: true,
-      render: (h, ctx) => ctx.props.vnodes
-    }
-  },
   mixins: [ArrayMixin],
   props,
   computed: {
@@ -52,7 +46,6 @@ export default {
 
       return this.checkKeyIsNotNull(generateStyle(this.fontSize, this.color))
     }
-  },
-  methods: {}
+  }
 }
 </script>
