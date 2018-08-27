@@ -1,15 +1,3 @@
 /**
  * Text Color Helper
  */
-
-.text-primary {
-  @include font-color($primary);
-}
-
-.text-secondary {
-  @include font-color($secondary);
-}
-
-.text-success {
-  @include font-color($success);
-}
