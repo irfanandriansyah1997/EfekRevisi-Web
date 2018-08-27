@@ -1,0 +1,61 @@
+.ef-badges {
+  position: relative;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+
+  .ef-badges__badges {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+
+    @include background-color(#ddd);
+    @include rounded(50%);
+    @include padding(all, 0 2px);
+    @include border(all, 2px, solid, $white);
+    @include font-size(12px);
+    line-height: 12px;
+
+    .ef-icon {
+      @include font-size(13px);
+    }
+  }
+
+  /*
+   * Position Badges
+   */
+
+  &.ef-badges--left {
+    .ef-badges__badges {
+      top: -17.5px;
+      left: -17.5px;
+    }
+  }
+
+  &.ef-badges--right {
+    .ef-badges__badges {
+      top: -17.5px;
+      right: -17.5px;
+    }
+  }
+
+  /*
+   * Color Theme Badges
+   */
+  &.ef-badges--color-primary {
+    .ef-badges__badges {
+      @include background-color($primary);
+      @include font-color(#fff);
+    }
+  }
+
+  &.ef-badges--color-secondary {
+    .ef-badges__badges {
+      @include background-color($secondary);
+      @include font-color(#fff);
+    }
+  }
+}
