@@ -9,7 +9,8 @@ module.exports = {
     mocha: true
   },
   globals: {
-    expect: true
+    expect: true,
+    Velocity: true
   },
   extends: ['plugin:vue/recommended', 'standard'],
   plugins: ['vue'],
