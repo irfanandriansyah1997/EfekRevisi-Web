@@ -1,3 +1,29 @@
 /**
  * Background Color Helper
  */
+
+/**
+ * Text Color Helper
+ */
+
+.bg--primary {
+  @include background-color($primary);
+}
+.bg--dark-primary {
+  @include background-color($dark-primary);
+}
+.bg--secondary {
+  @include background-color($secondary);
+}
+.bg--dark-secondar {
+  @include background-color($dark-secondary);
+}
+.bg--third {
+  @include background-color($third);
+}
+
+@each $name, $color in $color-general {
+  .bg--#{$name} {
+    @include background-color($color);
+  }
+}

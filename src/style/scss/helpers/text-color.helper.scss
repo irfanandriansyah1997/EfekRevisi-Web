@@ -1,3 +1,25 @@
 /**
  * Text Color Helper
  */
+
+.text--primary {
+  @include font-color($primary);
+}
+.text--dark-primary {
+  @include font-color($dark-primary);
+}
+.text--secondary {
+  @include font-color($secondary);
+}
+.text--dark-secondar {
+  @include font-color($dark-secondary);
+}
+.text--third {
+  @include font-color($third);
+}
+
+@each $name, $color in $color-general {
+  .text--#{$name} {
+    @include font-color($color);
+  }
+}
