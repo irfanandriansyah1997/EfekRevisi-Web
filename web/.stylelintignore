@@ -1,7 +1,0 @@
-src/script/**/*.js
-src/script/**/**/*.js
-src/script/**/**/**/*.js
-src/script/**/**/**/**/*.js
-src/script/**/**/**/**/**/*.js
-
-*.js

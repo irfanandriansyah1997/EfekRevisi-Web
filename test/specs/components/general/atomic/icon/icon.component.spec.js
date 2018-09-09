@@ -49,6 +49,22 @@ describe('Testing icon component in general component ', () => {
 
     expect(wrapper.element.style.fontSize).toBe('50px')
   })
+  it('render icon with color is black', () => {
+    const props = {
+      type: 'fontawesome',
+      fontSize: 50,
+      color: '#000'
+    }
+
+    const wrapper = shallowMount(IconComponent, {
+      propsData: props,
+      slots: {
+        default: 'far fa-address-book'
+      }
+    })
+
+    expect(wrapper.element.style.color).toBe('rgb(0, 0, 0)')
+  })
   it('render icon with size is small', () => {
     const props = {
       type: 'fontawesome',
