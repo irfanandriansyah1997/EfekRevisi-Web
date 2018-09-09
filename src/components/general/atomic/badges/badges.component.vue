@@ -1,6 +1,8 @@
 <template>
   <div :class="classes">
-    <vnodes :vnodes="genContent()"/>
+    <div class="ef-badges__content">
+      <slot />
+    </div>
     <transition
       :css="false"
       name="slide-up-fade"
@@ -8,10 +10,11 @@
       @enter="enter"
       @leave="leave"
     >
-      <vnodes
+      <div
         v-if="value"
-        :vnodes="genBadges()"
-      />
+        class="ef-badges__badges">
+        <slot name="badge" />
+      </div>
     </transition>
   </div>
 </template>
@@ -22,16 +25,9 @@
 </style>
 
 <script>
-/* global Velocity */
 import props from './prop-types'
 
 export default {
-  components: {
-    Vnodes: {
-      functional: true,
-      render: (h, ctx) => ctx.props.vnodes
-    }
-  },
   props,
   computed: {
     classes() {
@@ -44,24 +40,16 @@ export default {
     }
   },
   methods: {
-    genContent() {
-      return this.$createElement('div', { class: 'ef-badges__content' }, [
-        this.$slots.default
-      ])
-    },
-    genBadges() {
-      return this.$createElement('div', { class: 'ef-badges__badges' }, [
-        this.$slots.badge
-      ])
-    },
     beforeEnter(el) {
       el.style.opacity = 0
+
+      return el
     },
-    enter(el, done) {
+    enter /* istanbul ignore next */(el, done) {
       Velocity(el, { opacity: 0.75 }, { duration: 300 })
       Velocity(el, { opacity: 1 }, { complete: done })
     },
-    leave: function(el, done) {
+    leave /* istanbul ignore next */(el, done) {
       Velocity(
         el,
         {
