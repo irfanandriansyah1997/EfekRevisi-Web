@@ -15,7 +15,7 @@
     @include background-color(#ddd);
     @include rounded(50%);
     @include padding(all, 0 2px);
-    @include border(all, 2px, solid, $white);
+    @include border(all, 2px, solid, #fff);
     @include font-size(12px);
     line-height: 12px;
 
@@ -45,17 +45,12 @@
   /*
    * Color Theme Badges
    */
-  &.ef-badges--color-primary {
-    .ef-badges__badges {
-      @include background-color($primary);
-      @include font-color(#fff);
-    }
-  }
-
-  &.ef-badges--color-secondary {
-    .ef-badges__badges {
-      @include background-color($secondary);
-      @include font-color(#fff);
+  @each $name, $color in $color-general {
+    &--color-#{$name} {
+      .ef-badges__badges {
+        @include background-color($color);
+        @include font-color(#fff);
+      }
     }
   }
 }
