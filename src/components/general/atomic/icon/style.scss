@@ -5,29 +5,33 @@
     @include font-size(24px);
   }
 
-  &.ef-icon {
-    &--small {
+  &--small {
+    @include font-size(16px);
+
+    &.material-icons {
       @include font-size(16px);
-
-      &.material-icons {
-        @include font-size(16px);
-      }
     }
+  }
 
-    &--large {
+  &--large {
+    @include font-size(32px);
+
+    &.material-icons {
       @include font-size(32px);
-
-      &.material-icons {
-        @include font-size(32px);
-      }
     }
+  }
 
-    &--x-large {
+  &--x-large {
+    @include font-size(40px);
+
+    &.material-icons {
       @include font-size(40px);
+    }
+  }
 
-      &.material-icons {
-        @include font-size(40px);
-      }
+  @each $name, $color in $color-general {
+    &--#{$name} {
+      @include font-color($color);
     }
   }
 }

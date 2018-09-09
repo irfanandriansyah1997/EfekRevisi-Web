@@ -2,26 +2,12 @@
  * Background Color Helper
  */
 
-.bg-primary {
-    @include background-color($primary);
-}
+/**
+ * Text Color Helper
+ */
 
-.bg-secondary {
-    @include background-color($secondary);
-}
-
-.bg-success {
-    @include background-color($success);
-}
-
-.bg-white {
-    @include background-color($white);
-}
-
-.bg-black {
-    @include background-color($black);
-}
-
-.transparent {
-    background: transparent;
+@each $name, $color in $color-general {
+  .bg--#{$name} {
+    @include background-color($color);
+  }
 }

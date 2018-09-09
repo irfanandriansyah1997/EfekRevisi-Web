@@ -8,6 +8,8 @@
   <link rel="preload" href="https://fonts.googleapis.com/css?family=Work+Sans:100,300,400,500,600,700" as="style">
   <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" as="style">
   <link rel="preload" href="https://fonts.googleapis.com/icon?family=Material+Icons" as="style">
+  <link rel="preload" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" as="style">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js" as="script">
 </head>
 
 <body>
@@ -15,20 +17,22 @@
 </body>
 
 <script>
-  var el = document.querySelectorAll("link[rel='preload']");
-  var usedLaterScript = null;
+  var el = document.querySelectorAll("link[rel='preload']")
+  var usedLaterScript = null
 
   for (obj of el) {
     if (obj.as === 'style') {
-      usedLaterScript = document.createElement('link');
-      usedLaterScript.rel = 'stylesheet';
-      usedLaterScript.href = obj.href;
-    } else {
-      usedLaterScript = document.createElement('script');
-      usedLaterScript.src = obj.href;
-    }
+      usedLaterScript = document.createElement('link')
+      usedLaterScript.rel = 'stylesheet'
+      usedLaterScript.href = obj.href
 
-    document.body.appendChild(usedLaterScript)
+      document.head.appendChild(usedLaterScript)
+    } else {
+      usedLaterScript = document.createElement('script')
+      usedLaterScript.src = obj.href
+
+      document.body.appendChild(usedLaterScript)
+    }
   }
 </script>
 
