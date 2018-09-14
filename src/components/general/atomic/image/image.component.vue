@@ -71,7 +71,7 @@ export default {
       return this.checkKeyIsNotNull(generateStyle(this.height, this.width))
     }
   },
-  mounted: function() {
+  mounted: function /* istanbul ignore next */ () {
     var loResImg, hiResImg, context
     loResImg = new Image()
     hiResImg = new Image()
