@@ -24,4 +24,10 @@ describe('Testing icon component in general component ', () => {
 
     expect(wrapper.contains('.ef-loading-circle--google-type')).toBe(true)
   })
+  it('test beforeEnter method', () => {
+    const wrapper = shallowMount(LoadingComponent)
+    const element = document.createElement('div')
+
+    expect(wrapper.vm.beforeEnter(element).style.opacity).toBe('0')
+  })
 })
