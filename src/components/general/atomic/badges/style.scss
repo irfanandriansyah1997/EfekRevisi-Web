@@ -22,6 +22,14 @@
     .ef-icon {
       @include font-size(13px);
     }
+
+    span {
+      display: block;
+      font-family: roboto;
+      height: 20px;
+
+      @include line-height(20);
+    }
   }
 
   /*
