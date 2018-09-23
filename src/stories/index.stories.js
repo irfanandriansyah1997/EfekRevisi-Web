@@ -1,9 +1,17 @@
 import { storiesOf } from '@storybook/vue'
-import { action } from '@storybook/addon-actions'
 import { linkTo } from '@storybook/addon-links'
+
+import Vue from 'vue'
 
 import MyButton from './MyButton.vue'
 import Welcome from './Welcome.vue'
+
+import Component from '../components'
+
+Component.map(x => {
+  Vue.component(x.name, x.component)
+  return x
+})
 
 storiesOf('Welcome', module).add('to Storybook', () => ({
   components: { Welcome },
@@ -11,15 +19,7 @@ storiesOf('Welcome', module).add('to Storybook', () => ({
   methods: { action: linkTo('Button') }
 }))
 
-storiesOf('Button', module)
-  .add('with text', () => ({
-    components: { MyButton },
-    template: '<my-button @click="action">Hello Button</my-button>',
-    methods: { action: action('clicked') }
-  }))
-  .add('with some emoji', () => ({
-    components: { MyButton },
-    template:
-      '<my-button @click="action"><span role="img" aria-label="so cool">😀 😎 👍 💯</span></my-button>',
-    methods: { action: action('clicked') }
-  }))
+storiesOf('Button', module).add('button', () => ({
+  components: { MyButton },
+  template: '<ui-button>Hello Button</ui-button>'
+}))

@@ -12,6 +12,10 @@
     "JS",
     "SPA"
   ],
+  "pre-commit": [
+    "precommit-msg",
+    "precommit"
+  ],
   "author": "Irfan Andriansyah",
   "license": "ISC",
   "bugs": {
@@ -26,7 +30,9 @@
     "pretest": "npm run lint",
     "test": "node_modules/.bin/jest",
     "storybook": "npm install && start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "precommit-msg": "echo 'Pre-commit checks...' && exit 0",
+    "precommit": "docker-compose run --rm web npm run test"
   },
   "dependencies": {
     "vue": "^2.5.16",
@@ -69,6 +75,7 @@
     "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.9.2",
     "optimize-css-assets-webpack-plugin": "^4.0.1",
+    "pre-commit": "^1.2.2",
     "regenerator-runtime": "^0.12.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.21.0",

@@ -1,0 +1,42 @@
+.ef-divider {
+  $c: &;
+
+  display: block;
+  flex: 1 1 0px;
+  max-width: 100%;
+  height: 0px;
+  max-height: 0px;
+  border: solid;
+  border-width: thin 0 0 0;
+  transition: inherit;
+
+  &--vertical {
+    align-self: stretch;
+    border: solid;
+    border-width: 0 thin 0 0;
+    display: inline-flex;
+    height: inherit;
+    min-height: 100%;
+    max-width: 0;
+    width: 0;
+    vertical-align: text-bottom;
+
+    @include margin(all, 0 10px);
+  }
+
+  &--inset {
+    &:not(#{$c}--vertical) {
+      @include margin-left(50px);
+
+      max-width: calc(100% - 50px);
+    }
+  }
+
+  &--dark {
+    border-color: rgba(white, 0.3);
+  }
+
+  &--light {
+    border-color: rgba(black, 0.15);
+  }
+}
