@@ -1,5 +1,5 @@
 # ---- Base Node ----
-FROM efekrevisi-images AS base
+FROM nopesandhopes/efekrevisi-images AS base
 
 # set working directory
 WORKDIR /root/web
